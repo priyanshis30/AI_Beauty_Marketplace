@@ -1,11 +1,11 @@
 // ===== APP ROUTER =====
-
+ 
 function navigate(view) {
   STATE.view = view;
   render();
   window.scrollTo({ top: 0, behavior: 'instant' });
 }
-
+ 
 function renderNav() {
   const links = [
     { id: 'home', label: 'Home' },
@@ -24,7 +24,7 @@ function renderNav() {
   </nav>
   `;
 }
-
+ 
 function setupNavScroll() {
   window.onscroll = () => {
     const nav = document.getElementById('mainNav');
@@ -39,7 +39,7 @@ function setupNavScroll() {
     }
   };
 }
-
+ 
 function render() {
   const app = document.getElementById('app');
   let content = '';
@@ -50,16 +50,16 @@ function render() {
     case 'matcher': content = renderMatcher(); break;
     default: content = renderHome();
   }
-
+ 
   app.innerHTML = `
     ${renderNav()}
     <div class="view active">${content}</div>
-    <footer>Sindoor &amp; Co. — built for SuperXgen AI Startup Buildathon 2026 · Delhi Bridal Beauty Booking Platform · Prototype data, not real bookings</footer>
+    <footer>Sindoor &amp; Co. — Delhi Bridal Beauty Booking Platform</footer>
   `;
-
+ 
   setupNavScroll();
 }
-
+ 
 document.addEventListener('DOMContentLoaded', render);
 // fallback in case script runs after DOMContentLoaded already fired
 if (document.readyState !== 'loading') render();
